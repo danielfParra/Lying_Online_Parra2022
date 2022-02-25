@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+
+{% formfield player.q1_noext label="1.    Imagine the following scenario: Participant A reports a black card and Participant B picks an orange card. What would the payments be?" %}
+
+{% formfield player.q2_noext  label="2.	Now, imagine the following scenario: Participant A reports an orange card and Participant B picks a black card. What would the payments be?" %}
+
+{% formfield player.q3_noext  label="3.	What would the payments be if both, Participant A and the computer, report black cards?" %}
+
+{% formfield player.q4_noext label="4.	What would the payments be if both, Participant A and the computer, report orange cards?" %}
+
+{% formfield player.q5_noext  label="5.	The color reported by the computer is exactly the same that Participant B picked in her or him card" %}
+
+<p>
+<i>Once all the questions are correct you can continue.</i>
+</p>
+
+
+    {% next_button %}
+
+{% endblock %}

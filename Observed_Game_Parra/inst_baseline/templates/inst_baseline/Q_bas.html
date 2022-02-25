@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+
+{% formfield player.q1_bas label="1.    Imagine the following scenario: Participant A reports a black card and Participant B reports an orange card. What would the payments be?" %}
+
+{% formfield player.q2_bas label="2.	Now, imagine the following scenario: Participant A reports an orange card and Participant B reports a black card. What would the payments be?" %}
+
+{% formfield player.q3_bas label="3.	What would the payments be if both participants report black cards?" %}
+
+{% formfield player.q4_bas label="4.	What would the payments be if both participants report orange cards?" %}
+
+{% formfield player.q5_bas label="5.	At what moment Participant B learns what Participant A has reported?" %}
+
+<p>
+<i>Once all the questions are correct you can continue.</i>
+</p>
+
+
+    {% next_button %}
+{% endblock %}

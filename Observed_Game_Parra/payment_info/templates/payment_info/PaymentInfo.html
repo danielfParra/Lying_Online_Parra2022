@@ -1,0 +1,62 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Thank you for participation in this study!
+{% endblock %}
+
+{% block content %}
+
+<div class="card border-secondary mb-3">
+  <div class="card-header">
+    <h5>Payment</h5>
+  </div>
+  <div class="card-body"
+       title="In case something went wrong, please make a screenshot and contact us via Prolific.">
+
+    {% if not_a_bot %}
+    <p>
+      For your participation in this study you will receive
+      {{ Prolific_fixed_payoff }} and on your Prolific account
+      <b>{{ participant.label }}</b>. Based on your decisions you will
+      receive the additional {{ payoff }} in a form of a bonus after
+      the end of the study. The latter might take some time, so we ask
+      you to be patient.
+    </p>
+
+    {% else %}
+
+      <p>
+      For your participation in this study you will receive
+      {{ Prolific_fixed_payoff }} and on your Prolific account
+      <b>{{ participant.label }}</b>. You will not receive any additional
+        bonus because you did not take your decision on time on at least one screen.
+    </p>
+
+    {% endif %}
+
+<div class="card border-secondary mb-3">
+  <div class="card-header">
+    <h5>Contact</h5>
+  </div>
+  <div class="card-body">
+    <p>
+      For further questions please contact us under
+      <a href="mailto:prolificstudy@wzb.eu?subject=WZB%20Prolific%20study">
+        prolificstudy@wzb.eu
+      </a>
+    </p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="btn-group float-right">
+        <div class="pl-3">{% next_button %}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

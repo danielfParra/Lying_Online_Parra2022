@@ -1,0 +1,81 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 60) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+
+{% if player.id_in_group == 1  and player.waiting_too_long == False and group.p2_is_a_human == 1 %}
+    <p>
+        You reported that that the color of your card was <b>{{ group.get_report1_display}}</b>.
+        Participant B reported that the color of his or her card was <b>{{ group.get_report2_display}}</b>.
+    </p>
+
+    <p>
+        In the guessing part, you earned <b>{{ player.guess_payoff }}</b>.
+    </p>
+{% endif %}
+
+{% if player.waiting_too_long %}
+    <p>
+Given that some participants abandoned the game, you were not matched with another person.
+Then, to allow you to continue, a robot took the decisions of Participant B. Given this circumstance,
+we will compensate you with a bonus of {{ player.payoff }}.
+    </p>
+
+{% endif %}
+
+{% if group.p2_is_a_human == 0 %}
+    <p>
+Given that some participants abandoned the game, you were not matched with another person.
+Then, to allow you to continue, a robot took the decisions of Participant B. Given this circumstance,
+we will compensate you with a bonus of {{ player.payoff }}.
+    </p>
+
+{% endif %}
+
+{% if player.id_in_group == 2 and group.p1_is_a_human == 1 %}
+    <p>
+        Participant A reported that that the color of his card was <b>{{ group.get_report1_display}}</b>.
+        You reported that that the color of your card was <b>{{ group.get_report2_display}}</b>.
+    </p>
+
+    <p>
+        In the guessing part, you earned <b>{{ player.guess_payoff }}</b>.
+    </p>
+{% endif %}
+
+{% if player.id_in_group == 2 and group.p1_is_a_human == 0 %}
+    <p>
+Given that some participants abandoned the game, you were not matched with another person.
+Then, to allow you to continue, a robot took the decisions of Participant A. Given this circumstance,
+we will compensate you with a bonus of {{ player.payoff }}.
+    </p>
+
+{% endif %}
+
+    <p>
+    After clicking Next, you will fill out a demographic survey to finish the experiment.
+    </p>
+    {% next_button %}
+{% endblock %}
+
+

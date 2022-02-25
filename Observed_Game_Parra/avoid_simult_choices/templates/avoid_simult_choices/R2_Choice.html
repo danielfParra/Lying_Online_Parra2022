@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 60) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+
+
+<p>
+    We now ask you to report the color behind your card.
+</p>
+<p>
+    Please make your report by choosing a color and clicking on “Next”.
+</p>
+{% formfield group.report2%}
+
+{% next_button %}
+
+{% endblock %}
