@@ -1,0 +1,76 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .otree-timer {
+        display: none;
+    }
+</style>
+
+<script>
+    $(function () {
+        $('.otree-timer__time-left').on('update.countdown', function (event) {
+            if (event.offset.totalSeconds === 60) {
+                $('.otree-timer').show();
+            }
+        });
+    });
+</script>
+
+{% if player.id_in_group == 1  and player.players_in_group == 2 and group.p2_is_a_human == 1 %}
+    <p>
+ You and the computer (on behalf of Participant B) reported whether the color you picked is the color you thought of.
+    </p>
+<p>
+    You reported: <b>"{{ group.get_report1_display}}"</b>.
+    The computer (on behalf of Participant B) reported: <b>"{{ group.get_report2_display}}"</b>.
+
+    <p>
+    In the guessing part, you earned <b>{{ player.guess_payoff }}</b>.
+    </p>
+{% endif %}
+
+{% if player.players_in_group == 1 or group.p2_is_a_human == 0 %}
+    <p>
+Given that some participants abandoned the game, you were not matched with another person.
+Then, to allow you to continue, a robot took the decisions of Participant B. Given this circumstance,
+we will compensate you with a bonus of {{ player.payoff }}.
+    </p>
+
+{% endif %}
+
+{% if player.id_in_group == 2 and group.p1_is_a_human == 1 %}
+    <p>
+ Participant A and the computer (on behalf of Participant B) reported
+        whether the color you picked is the color you thought of.
+            </p>
+<p>
+    Participant A reported: <b>"{{ group.get_report1_display}}"</b>.
+    The computer (on behalf of you) reported: <b>"{{ group.get_report2_display}}"</b>.
+      </p>
+{% endif %}
+
+{% if player.id_in_group == 2 and group.p1_is_a_human == 0 %}
+    <p>
+Given that some participants abandoned the game, you were not matched with another person.
+Then, to allow you to continue, a robot took the decisions of Participant A. Given this circumstance,
+we will compensate you with a bonus of {{ player.payoff }}.
+    </p>
+
+{% endif %}
+
+    <p>
+    After clicking Next, you will fill in a demographic survey to finish the experiment.
+    </p>
+
+
+    {% next_button %}
+{% endblock %}
+
+
