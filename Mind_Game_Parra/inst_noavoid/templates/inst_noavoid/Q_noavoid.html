@@ -1,0 +1,63 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+
+<style>
+ .callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  code {
+    border-radius: 3px;
+  }
+  & + .bs-callout {
+    margin-top: -5px;
+  }
+}
+@each $name,$color in (default,#777),(primary,#428bca),(success,#5cb85c),(danger,#d9534f),(warning,#f0ad4e),(info,#5bc0de), (bdc,#29527a) {
+  .callout-#{$name} {
+    border-left-color: $color;
+    h4 {
+      color: $color;
+    }
+  }
+}
+</style>
+
+{% formfield  player.q1_noavoid label="1.   Imagine the following scenario: Participant A reports <q>No</q> and the computer (on behalf of Participant B) reports <q>Yes</q>. What would the payments be?" %}
+
+{% formfield player.q2_noavoid label="2.	Now, imagine the following scenario: Participant A reports <q>Yes</q> and the computer (on behalf of Participant B) reports <q>No</q>. What would the payments be?" %}
+
+{% formfield player.q3_noavoid label="3.	What would the payments be if both, Participant A and the computer, report <q>No</q>?" %}
+
+{% formfield player.q4_noavoid label="4.	What would the payments be if both, Participant A and the computer, report <q>Yes</q>?" %}
+
+{% formfield player.q5_noavoid label="5.	The computer uses the color selected by Participant B to report whether the chosen color and the drawn color match." %}
+
+<p>
+<i>Once you have answered all the questions correctly, you can continue.</i>
+</p>
+
+<p>
+<div class="callout callout-primary">
+Please note that the experiment does not contain any further comprehension
+    questions or attention checks from this point on!</div>
+    </p>
+
+    {% next_button %}
+
+{% endblock %}

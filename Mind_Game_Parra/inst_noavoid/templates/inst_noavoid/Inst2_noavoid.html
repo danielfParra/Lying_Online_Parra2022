@@ -1,0 +1,160 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instructions
+{% endblock %}
+
+{% block content %}
+
+    <p>
+ At the beginning of the experiment, you will be randomly matched with another participant.
+    </p>
+    <p>
+        The computer will then randomly assign a role to each of you.
+        One participant will be <span style="color: #5F5CFB">Participant A</span> and the other
+        one will be <span style="color:#fb5b5b">Participant B</span>.
+        These labels will ensure that neither of you know the identity of the other participant.
+    </p>
+    <p>
+        The experiment works as follows:
+    </p>
+
+    <ol>
+  <li> <span style="color: #5F5CFB">Participant A</span> sees 5 cards with different
+      colors (black, orange, blue, yellow, and green) and chooses one color in their head.
+  </li>
+  <li> On the next screen, <span style="color: #5F5CFB">Participant A</span> sees 10 cards with a question mark.
+      Behind each card, there is a color. There are 2 black cards, 2 orange cards, 2 blue cards, 2 yellow cards,
+      and 2 green cards. The cards are placed in a random order. <span style="color: #5F5CFB">Participant A</span>
+      clicks on a card and the card flips and shows the color behind it.
+      Only <span style="color: #5F5CFB">Participant A</span> knows the color of the card she/he picked. </li>
+
+  <li> After <span style="color: #5F5CFB">Participant A</span> sees the color behind the picked card,
+      she/he reports whether the color of the card she/he picked in the second stage is the same as
+      the color she/he mentally chose in the first stage. <span style="color: #5F5CFB">Participant A</span>
+      has to report whether the colors of the picked card and the
+      later seen card match. If both colors match, she/he reports “Yes”; otherwise, she/he reports “No”.
+      A message will later be sent to <span style="color:#fb5b5b">Participant B</span>
+      stating whether Participant A reported ”Yes” or “No”.</li>
+
+  <li> Then, <span style="color:#fb5b5b">Participant B</span> sees 5 cards with different colors
+      (black, orange, blue, yellow, and green) and chooses one color.
+      In contrast to <span style="color: #5F5CFB">Participant A</span>,
+      <span style="color:#fb5b5b">Participant B</span> reveals the chosen color. </li>
+
+  <li> After choosing a card, <span style="color:#fb5b5b">Participant B</span> receives the message
+      with the color reported by <span style="color: #5F5CFB">Participant A</span>.</li>
+
+  <li> On the next screen, <span style="color:#fb5b5b">Participant B</span> sees 10 cards with a question mark.
+       Behind each card, there is a color. There are 2 black cards, 2 orange cards, 2 blue cards, 2 yellow cards,
+       and 2 green cards. The cards are placed in a random order. <span style="color:#fb5b5b">Participant B</span>
+       clicks on a card and the card flips and shows the color behind it. </li>
+
+  <li> Finally, the computer automatically reports whether the color of the flipped card is the color that
+      <span style="color:#fb5b5b">Participant B</span> picked in the first stage.
+      This means that, in contrast to <span style="color: #5F5CFB">Participant A</span>,
+      <span style="color:#fb5b5b">Participant B</span> will not report whether the cards matched –
+      the computer will do so on behalf of Participant B. </li>
+      </ol>
+
+    <p>
+        The reports by Participant A and the computer (on behalf of Participant B)
+        determine the payments in the experiment.
+    </p>
+
+    <p>
+        The computer knows the color chosen and the color picked by Participant B.
+        Then, it reports whether the chosen color and the drawn color by Participant B
+        match using this information.
+    </p>
+<p>
+        Participant A and the computer report “Yes” or “No” to the following statement:
+        “Please indicate whether the color behind the card you/Participant B picked is the color that
+        you/Participant B thought of:" If either Participant A or the computer reports
+        “Yes” (no matter who), both participants receive {{Constants.payoff_win}}.
+        If both report “No”, both participants receive {{Constants.payoff_lose}}.
+        All the possible report combinations are summarized in the table below.
+    </p>
+
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-yj5y{background-color:#efefef;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-color:#ccc;border-spacing:0;margin:0px auto;}
+.tg td{background-color:#fff;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#f0f0f0;border-color:#ccc;border-style:solid;border-width:1px;color:#333;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-yj5y{background-color:#efefef;border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+@media screen and (max-width: 767px) {.tg {width: auto !important;}.tg col {width: auto !important;}.tg-wrap {overflow-x: auto;-webkit-overflow-scrolling: touch;margin: auto 0px;}}</style>
+<div class="tg-wrap"><table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky" colspan="2">Report</th>
+    <th class="tg-0pky" colspan="2">Earnings</th>
+  </tr>
+  <tr>
+    <td class="tg-yj5y">Participant A </td>
+    <td class="tg-yj5y">Computer <br>  (on behalf of <br> Participant B)</td>
+    <td class="tg-yj5y">A</td>
+    <td class="tg-yj5y">B</td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">No</td>
+    <td class="tg-0pky">No</td>
+    <td class="tg-c3ow">{{Constants.payoff_lose}} </td>
+    <td class="tg-c3ow">{{Constants.payoff_lose}}</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">No</td>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-c3ow">{{Constants.payoff_win}}</td>
+    <td class="tg-c3ow">{{Constants.payoff_win}}</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">No</td>
+    <td class="tg-c3ow">{{Constants.payoff_win}}</td>
+    <td class="tg-c3ow">{{Constants.payoff_win}}</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-0pky">Yes</td>
+    <td class="tg-c3ow">{{Constants.payoff_win}}</td>
+    <td class="tg-c3ow">{{Constants.payoff_win}}</td>
+  </tr>
+</tbody>
+</table></div>
+
+<p>   </p>
+<p>
+    <div class="alert alert-info" role="alert">
+    There will be no further rounds in this experiment. That is,
+    you will participate in the task described above only once. </div>
+</p>
+
+<p>
+
+<i> Before starting, we’d like you to answer the questions on the next page to check your understanding.</i>
+
+</p>
+
+
+    {% next_button %}
+{% endblock %}
+
+
