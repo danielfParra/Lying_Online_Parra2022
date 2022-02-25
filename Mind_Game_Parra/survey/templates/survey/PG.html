@@ -1,0 +1,36 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Survey
+{% endblock %}
+
+{% block content %}
+
+<p>
+    Please read the description of the following organisations.
+</p>
+
+<div class="card border-light mb-3">
+    <div class="card-header">
+    <h5>The organisations</h5>
+  </div>
+
+  <div class="card-body">
+          <ol>
+  <li> <b>Keep Britain Tidy:</b> They help to reduce litter,
+       improve local places and prevent waste in the United Kingdom </li>
+  <li> <b>RNLI Lifeboats:</b>  They save lives at sea around the coasts of the United Kingdom.
+  </li>
+  <li> <b>British Red Cross: </b> They help anyone, anywhere in the UK and worldwide,
+      get the support they need if a crisis strikes.</li>
+  <li> <b>National Trust: </b> They work to protect the natural environment and historical heritage
+      in the United Kingdom.</li>
+    </ol>
+   </div>
+
+    {% formfields %}
+
+    {% next_button %}
+
+{% endblock %}
